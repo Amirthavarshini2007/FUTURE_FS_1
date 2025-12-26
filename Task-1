@@ -2,19 +2,29 @@ HTML:
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- SEO META TAGS -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amirtha Varshini | Professional Portfolio</title>
   <meta name="description" content="Professional portfolio of Amirtha Varshini showcasing skills, projects, achievements, and contact details.">
   <meta name="keywords" content="Portfolio, Data Science, AI, Full Stack Developer, Student Portfolio">
-  <meta name="author" content="Amirtha Varshini">>
+  <meta name="author" content="Amirtha Varshini">
+
+  <!-- Open Graph (SEO for social media) -->
   <meta property="og:title" content="Amirtha Varshini Portfolio">
   <meta property="og:description" content="Explore my projects, skills, and achievements.">
   <meta property="og:type" content="website">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
+
 <body>
+
+  <!-- NAVBAR -->
   <header>
     <nav class="navbar">
       <h1 class="logo">AV</h1>
@@ -26,189 +36,85 @@ HTML:
       </ul>
     </nav>
   </header>
+
+  <!-- HERO -->
   <section id="home" class="hero">
     <h2>Hello, I'm</h2>
     <h1>Amirtha Varshini</h1>
     <p>AI & Data Science Enthusiast | Aspiring Full Stack Developer</p>
     <a href="assets/resume.pdf" class="btn" download>Download Resume</a>
   </section>
-  <section id="resume" class="section">
+
+  <!-- INTERACTIVE RESUME -->
+  <section id="resume" class="section reveal">
     <h2 class="section-title">Resume Overview</h2>
+
     <div class="resume-container">
-      <div class="resume-card">
+      <div class="resume-card reveal-left">
         <h3>Education</h3>
         <p>B.Tech – AI & Data Science</p>
         <span>2022 – Present</span>
       </div>
-      <div class="resume-card">
+
+      <div class="resume-card reveal">
         <h3>Skills</h3>
         <p>Python, Java (Basics), HTML, CSS, JavaScript</p>
         <p>Data Analysis, Communication, Leadership</p>
       </div>
-      <div class="resume-card">
+
+      <div class="resume-card reveal-right">
         <h3>Achievements</h3>
         <p>Internship Tasks Completed</p>
         <p>Multiple Data Analytics Certifications</p>
       </div>
     </div>
   </section>
-  <section id="projects" class="section">
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section reveal">
     <h2 class="section-title">Projects</h2>
+
     <div class="projects-grid">
-      <div class="project-card">
+      <div class="project-card reveal">
         <h3>Expense Tracker</h3>
         <p>Tracks income and expenses with analytics.</p>
       </div>
-      <div class="project-card">
+
+      <div class="project-card reveal">
         <h3>Road Accident Analysis</h3>
         <p>EDA & visual insights using Python datasets.</p>
       </div>
-      <div class="project-card">
+
+      <div class="project-card reveal">
         <h3>Professional Dashboard</h3>
         <p>Clean UI dashboard for business insights.</p>
       </div>
     </div>
   </section>
-  <section id="contact" class="section">
+
+  <!-- CONTACT FORM -->
+  <section id="contact" class="section reveal">
     <h2 class="section-title">Contact Me</h2>
+
     <form id="contact-form">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit" class="btn">Send Message</button>
     </form>
+
     <p id="form-status"></p>
   </section>
+
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Amirtha Varshini. All Rights Reserved.</p>
   </footer>
+
+  <!-- JS -->
   <script src="js/main.js"></script>
 </body>
 </html>
-JAVASCRIPT:
-(function () {
-  
-  emailjs.init("RJbSU44Qtt3vFKolD");
-})();
 
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
 
-  emailjs.sendForm(
-    "service_s83mzqo",     
-    "template_k8lexus",    
-    this
-  ).then(
-    function () {
-      document.getElementById("form-status").innerText =
-        "Message sent successfully!";
-    },
-    function (error) {
-      document.getElementById("form-status").innerText =
-        "Failed to send message. Please try again.";
-      console.error("EmailJS Error:", error);
-    }
-  );
-
-  this.reset();
-});
 CSS:
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-body {
-  background-color: #f5f7fa;
-  color: #333;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 10%;
-  background: #0f172a;
-}
-.logo {
-  color: #38bdf8;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-}
-.hero {
-  height: 90vh;
-  text-align: center;
-  padding-top: 120px;
-  background: linear-gradient(120deg, #0f172a, #1e293b);
-  color: white;
-}
-.hero h1 {
-  font-size: 3rem;
-}
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 30px;
-  background: #38bdf8;
-  color: #000;
-  border-radius: 30px;
-  text-decoration: none;
-}
-.section {
-  padding: 80px 10%;
-}
-.section-title {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.resume-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-.resume-card {
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-.project-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-}
-
-form {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-input, textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #0f172a;
-  color: white;
-}
